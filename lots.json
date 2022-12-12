@@ -4,6 +4,7 @@
     "name" : "Amphora",
     "price" : 150.0,
     "honorary_code" : 0,
+    "is_sale" : false,
     "state_as_string" : ""
   },
   {
@@ -11,6 +12,7 @@
     "name" : "Sword",
     "price" : 200.0,
     "honorary_code" : 0,
+    "is_sale" : false,
     "state_as_string" : ""
   },
   {
@@ -18,6 +20,7 @@
     "name" : "Bow",
     "price" : 300.0,
     "honorary_code" : 0,
+    "is_sale" : false,
     "state_as_string" : ""
   },
   {
@@ -25,6 +28,7 @@
     "name" : "Shield",
     "price" : 500,
     "honorary_code" : 0,
+    "is_sale" : false,
     "state_as_string" : ""
   }
 ]

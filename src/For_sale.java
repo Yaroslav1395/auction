@@ -5,21 +5,36 @@ public class For_sale extends State{
 
     @Override
     public void startSale() {
-
+        System.out.println("Товар уже на торгах");
     }
 
     @Override
     public void raisePrice() {
-
+        super.getLot().setPrice(super.getLot().getPrice() + 20);
+        super.getLot().setIs_sale(true);
+        System.out.println("Цена повышена");
     }
 
     @Override
     public void withdraw() {
-
+        if (super.getLot().isIs_sale()){
+            System.out.println("Товар продан");
+        }
+        else {
+            super.getLot().setState(new In_stock(super.getLot()));
+        }
     }
 
     @Override
     public void giveToTheWinner() {
-
+        if(super.getLot().isIs_sale()){
+            super.getLot().setState(new Sold(super.getLot()));
+        }
+        else {
+            System.out.println("Товар не куплен. Невозможно отдать");
+        }
     }
 }
+
+
+
