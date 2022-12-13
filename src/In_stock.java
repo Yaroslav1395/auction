@@ -8,20 +8,24 @@ public class In_stock extends State{
         super.getLot().setState(new For_sale(super.getLot()));
         super.getLot().setState_as_string("На торгах");
         System.out.println("Лот выставлен на торги");
+        System.out.println("Введите номер действия: ");
     }
 
     @Override
     public void raisePrice() {
         System.out.println("Товар не участвует в торгах");
+        System.out.println("Введите номер действия: ");
     }
 
     @Override
     public void withdraw() {
         System.out.println("Нельзя выставить товар, который не участвует в торгах");
+        System.out.println("Введите номер действия: ");
     }
 
     @Override
     public void giveToTheWinner() {
         System.out.println("Нельзя отдать товар со склада");
+        System.out.println("Введите номер действия: ");
     }
 }

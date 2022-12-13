@@ -36,19 +36,7 @@ public class Lots {
 
     }
 
-    private void lotInformatonHeader(){
-        String format = " %-13s| %-9s| %-10s| %-7s| %-7s%n";
-        System.out.printf(format, "ID", "Name", "State", "Price", "Code");
-    }
-
-    public void lotInformation(int userNumber){
-        lotInformatonHeader();
-        String format = " %-13s| %-9s| %-10s| %-7s| %-7s%n";
-        System.out.printf(format,
-                this.lots[userNumber].getId(),
-                this.lots[userNumber].getName(),
-                this.lots[userNumber].getState_as_string(),
-                this.lots[userNumber].getPrice(),
-                this.lots[userNumber].getHonorary_code());
+    public void printLotInformation(int userNumber, Auction auction){
+        this.lots[userNumber].lotInformation(auction);
     }
 }

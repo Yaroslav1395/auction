@@ -38,7 +38,7 @@ public class Auction {
 
     public void printLotInformation(){
         System.out.println("Выберите номер лота");
-        this.lots.lotInformation(this.userInput());
+        this.lots.printLotInformation(this.userInput(), this);
     }
 
 }
