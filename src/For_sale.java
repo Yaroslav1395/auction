@@ -22,6 +22,7 @@ public class For_sale extends State{
         }
         else {
             super.getLot().setState(new In_stock(super.getLot()));
+            super.getLot().setState_as_string("На складе");
         }
     }
 
@@ -29,6 +30,7 @@ public class For_sale extends State{
     public void giveToTheWinner() {
         if(super.getLot().isIs_sale()){
             super.getLot().setState(new Sold(super.getLot()));
+            super.getLot().setState_as_string("Продано");
         }
         else {
             System.out.println("Товар не куплен. Невозможно отдать");

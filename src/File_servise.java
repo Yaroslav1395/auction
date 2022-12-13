@@ -8,23 +8,23 @@ import java.nio.file.Paths;
 public class File_servise {
     private static final Gson gson = new Gson();
 
-    public static Lot[] readJsonLots(){
-        Path path = Paths.get("./lots.json");
+    public static Lot[] readJsonLots(String path){
+        Path pathToJson = Paths.get(path);
         String lots;
         try {
-            lots = Files.readString(path);
+            lots = Files.readString(pathToJson);
         }catch (IOException e){
             throw new RuntimeException();
         }
         return gson.fromJson(lots, Lot[].class);
     }
 
-    public static void writeLotsToJson(Auction auction){
-        Path path = Paths.get("./lots.json");
+    public static void writeLotsToJson(Auction auction, String path){
+        Path pathToJson = Paths.get(path);
         String lots = gson.toJson(auction);
         try {
             byte[] lotsByte = lots.getBytes(lots);
-            Files.write(path, lotsByte);
+            Files.write(pathToJson, lotsByte);
         }catch (IOException e){
             e.printStackTrace();
         }

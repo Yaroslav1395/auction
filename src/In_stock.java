@@ -6,6 +6,7 @@ public class In_stock extends State{
     @Override
     public void startSale() {
         super.getLot().setState(new For_sale(super.getLot()));
+        super.getLot().setState_as_string("На торгах");
         System.out.println("Лот выставлен на торги");
     }
 
