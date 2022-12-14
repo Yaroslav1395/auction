@@ -9,6 +9,10 @@ public class Auction {
         this.lots = new Lots();
     }
 
+    public Lots getLots() {
+        return lots;
+    }
+
     private int userInput(){
         System.out.println("¬ведите число: ");
         int userNumber;

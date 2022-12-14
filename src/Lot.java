@@ -1,4 +1,3 @@
-import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -10,6 +9,8 @@ public class Lot {
     private String state_as_string;
     private boolean is_sale;
     private transient State state;
+    //в клиентском классе создаем ссылку на контекст
+    //через эту ссылку мы можем применить конкретную стратегию
     private transient Context context;
 
     public double getPrice() {
@@ -82,7 +83,7 @@ public class Lot {
                 this.state_as_string,
                 this.price,
                 this.honorary_code);
-        this.lotActions(auction);
+                this.lotActions(auction);
     }
 
     private void lotActionsHeader(){
@@ -101,10 +102,22 @@ public class Lot {
         while (!isExit){
             userNumber = userActionInput();
             switch (userNumber) {
-                case 1 -> this.getState().startSale();
-                case 2 -> this.getState().raisePrice();
-                case 3 -> this.getState().giveToTheWinner();
-                case 4 -> this.getState().withdraw();
+                case 1 -> {
+                    this.getState().startSale();
+                    File_servise.writeLotsToJson(auction.getLots().getLots(), "./lots.json");
+                }
+                case 2 -> {
+                    this.getState().raisePrice();
+                    File_servise.writeLotsToJson(auction.getLots().getLots(), "./lots.json");
+                }
+                case 3 -> {
+                    this.getState().giveToTheWinner();
+                    File_servise.writeLotsToJson(auction.getLots().getLots(), "./lots.json");
+                }
+                case 4 -> {
+                    this.getState().withdraw();
+                    File_servise.writeLotsToJson(auction.getLots().getLots(), "./lots.json");
+                }
                 case 5 -> this.lotInformation(auction);
                 case 6 -> {
                     auction.startAuction();

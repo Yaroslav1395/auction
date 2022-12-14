@@ -19,11 +19,11 @@ public class File_servise {
         return gson.fromJson(lots, Lot[].class);
     }
 
-    public static void writeLotsToJson(Auction auction, String path){
+    public static void writeLotsToJson(Lot[] lots, String path){
         Path pathToJson = Paths.get(path);
-        String lots = gson.toJson(auction);
+        String lotsAsString = gson.toJson(lots);
         try {
-            byte[] lotsByte = lots.getBytes(lots);
+            byte[] lotsByte = lotsAsString.getBytes(lotsAsString);
             Files.write(pathToJson, lotsByte);
         }catch (IOException e){
             e.printStackTrace();
