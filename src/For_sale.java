@@ -24,7 +24,7 @@ public class For_sale extends State{
         }
         else {
             super.getLot().setState(new In_stock(super.getLot()));
-            super.getLot().setState_as_string("На складе");
+            super.getLot().setState_as_string("On base");
             System.out.println("Введите номер действия: ");
         }
     }
@@ -38,7 +38,7 @@ public class For_sale extends State{
                 super.getLot().setContext(new Context(new Gold_Code()));
             } else if (super.getLot().getPrice() >= 500 && super.getLot().getPrice() < 1000) {
                 //имея доступ к состоянию объекта(контексту), мы можем создать новый объект контекста и
-                //и через конструктор передеать в него конкретную реализацию стратегии
+                //и через конструктор передать в него конкретную реализацию стратегии
                 super.getLot().setContext(new Context(new Silver_Code()));
             } else {
                 super.getLot().setContext(new Context(new Bronze_Code()));
@@ -46,7 +46,7 @@ public class For_sale extends State{
             //имея в контексте ссылку на объект стратегии, метод вызываемый у контекста, сработает согласно
             // той стратегии, ссылка на которую хранится в поле контекста
             super.getLot().setHonorary_code(super.getLot().getContext().getCode(super.getLot().getId()));
-            super.getLot().setState_as_string("Продано");
+            super.getLot().setState_as_string("Sold");
             System.out.println("Товар выдан победителю");
             System.out.println("Введите номер действия: ");
         }

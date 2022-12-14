@@ -6,12 +6,21 @@ public class Lot {
     private String name;
     private double price;
     private String honorary_code;
-    private String state_as_string;
     private boolean is_sale;
+    private String state_as_string;
     private transient State state;
     //в клиентском классе создаем ссылку на контекст
     //через эту ссылку мы можем применить конкретную стратегию
     private transient Context context;
+
+    public Lot(String id, String name, double price, String honorary_code, boolean is_sale, String state_as_string) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.honorary_code = honorary_code;
+        this.is_sale = is_sale;
+        this.state_as_string = state_as_string;
+    }
 
     public double getPrice() {
         return price;

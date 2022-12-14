@@ -23,10 +23,11 @@ public class File_servise {
         Path pathToJson = Paths.get(path);
         String lotsAsString = gson.toJson(lots);
         try {
-            byte[] lotsByte = lotsAsString.getBytes(lotsAsString);
+            byte[] lotsByte = lotsAsString.getBytes();
             Files.write(pathToJson, lotsByte);
         }catch (IOException e){
             e.printStackTrace();
         }
     }
+
 }

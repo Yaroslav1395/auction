@@ -14,7 +14,7 @@ public class Lots {
     private void setStartLotsState(){
         for (Lot i: this.lots) {
             i.setState(new In_stock(i));
-            i.setState_as_string("На складе");
+            i.setState_as_string("On base");
         }
     }
 
